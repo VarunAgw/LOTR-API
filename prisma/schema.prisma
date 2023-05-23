@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model movies {
+  id      Int      @id @default(autoincrement())
+  title   String   @db.VarChar(255)
+  created DateTime @default(now()) @db.DateTime(0)
+  quotes  quotes[]
+}
+
+model quotes {
+  id       Int      @id @default(autoincrement())
+  movie_id Int
+  content  String   @db.Text
+  created  DateTime @default(now()) @db.DateTime(0)
+  movies   movies   @relation(fields: [movie_id], references: [id], onDelete: Cascade, map: "quotes_ibfk_1")
+
+  @@index([movie_id], map: "movie_id")
+}
