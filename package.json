@@ -23,6 +23,7 @@
   "devDependencies": {
     "@faker-js/faker": "^8.0.1",
     "@nestjs/schematics": "^9.1.0",
+    "@nestjs/swagger": "^6.3.0",
     "@nestjs/testing": "^9.1.1",
     "@nx/eslint-plugin": "16.2.1",
     "@nx/jest": "16.2.1",
