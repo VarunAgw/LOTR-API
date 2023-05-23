@@ -2,8 +2,21 @@
   "name": "@lotr/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "prepare": "husky install"
+  },
   "private": true,
+  "husky": {
+    "hooks": {
+      "precommit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{css,js,json,md,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
   "devDependencies": {
     "@nestjs/schematics": "^9.1.0",
     "@nestjs/testing": "^9.1.1",
@@ -23,6 +36,7 @@
     "eslint-config-prettier": "8.1.0",
     "jest": "^29.4.1",
     "jest-environment-node": "^29.4.1",
+    "lint-staged": "^13.2.2",
     "nx": "16.2.1",
     "nx-cloud": "latest",
     "prettier": "^2.6.2",
